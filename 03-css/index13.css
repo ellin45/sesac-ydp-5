@@ -1,0 +1,70 @@
+div {
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+    border-radius: 50%;
+
+    position: absolute;
+}
+
+/* z-index : 겹치는 요소에 대한 순서를 결정
+    -숫자값: 양수, 0, 음수
+    -숫자값이 클수록 더 위에 쌓임(가장 앞에 놓인다)
+*/
+.body1{
+    top: 80px;
+    left: 100px;
+    background-color: rgb(238, 13, 13);
+    z-index: 0;
+    border-radius: 50%;
+}
+
+.body2 {
+    top: 80px;
+    left: 100px;
+    position:fixed;
+    background-color: rgb(231, 109, 15);
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.body3 {
+    top: 25px;
+    left: 25px;
+    position: fixed;
+    border-radius: 50%;
+    z-index: 2;
+    background-color: rgb(229, 243, 105);
+}
+
+.body4{
+    top: 100px;
+    left: 100px;
+    border-radius: 50%;
+    background-color: rgb(112, 226, 84);
+    z-index: 
+}
+
+.body5{
+    top: 120px;
+    left: 100px;
+    border-radius: 50%;
+    background-color: rgb(29, 84, 144);
+}
+
+.body6 {
+    top: 100px;
+    left: 100px;
+    border-radius: 50%;
+    background-color: rgb(16, 16, 116);
+}
+.grass {
+    width: 200px;
+    height: 120px;
+    top:180px;
+    left:160px;
+    position:fixed;
+    z-index: 8;
+}
