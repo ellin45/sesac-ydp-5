@@ -16,7 +16,7 @@ header {
     height: 80px;
     padding: 0 20px;
 }
-
+/* header1 */
 .header1 {
     display: flex;
     justify-content: space-between;
@@ -30,30 +30,46 @@ header {
 .header1 .menus li {
     margin-left: 20px;
 }
+/* header2 */
 .header2  {
     display: flex;
-}
-
-.header2 .menus {
-    display:flex;
-    justify-content: space-between;
     align-items: center;
-    
-}
-.header2 .menus li {
-    display: flex;
-    margin-right: 260px;
-    justify-content: space-between;
 }
 
+.header2 .menus  {
+     /* ul 이 차지하는 공간을 넓혀준다 */
+     width: 100%;
+
+     /* li 들을 가로로 세팅 */
+     display: flex;
+     justify-content: space-between;
+}
+
+/* header3 */
 .header3 {
     display: flex;
-    
-}
-
-.header3 .menu-left li  {
-    display:flex;
+    align-items: center;
     justify-content: space-between;
 }
 
+.header3 .menu-center {
+    display: flex;
+}
 
+.header3 .menu-center li {
+    padding: 30px;
+}
+/* header 4 */
+.header4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header4 ul {
+    display: flex;
+    justify-content: space-between;
+}
+.header4 ul li {
+    display: flex;
+    padding: 0 10px;
+}
