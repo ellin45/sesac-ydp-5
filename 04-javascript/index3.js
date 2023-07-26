@@ -241,3 +241,4 @@ console.log(`평균 점수 : ${avgScore}`)
 
 console.log(Number(undefiend), typeof(Number(undefiend)));
 console.log(Nmber(null), typeof Number(null));
+
