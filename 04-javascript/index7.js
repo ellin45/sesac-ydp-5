@@ -85,3 +85,27 @@ for (let i= 0; i <100; i++){
 }
 console.log(sum3);
 
+//실습
+//2또는 5의 배수의 총합
+let num = 0;
+for (let i = 0; i<=100; i++){
+    if(num % 2 === 0 || num % 5 === 0){
+        num += num;
+    }
+}
+console.log(num);
+
+
+//13의 배수 && 홀수
+
+// let number = Number(prompt('숫자를 입력하세요'));
+
+for (let i= 0; i<=1000; i++){
+    if(number % 13 === 0 && number % 2 === 1){
+
+        console.log("13의 배수면서 홀수 인 숫자입니다")
+    }
+}
+
+//구구단 만들기
+
