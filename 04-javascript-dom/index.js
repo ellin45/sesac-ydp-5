@@ -102,7 +102,6 @@ console.log(Math.min(100, -2, 0, 5));
 //1 ~ 100
 console.log(Math.floor(Math.random() * 100 + 1))
 
-
-
 // 20 ~ 22
 console.log(Math.floor(Math.random() * 3 +20))
+
