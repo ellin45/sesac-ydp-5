@@ -83,6 +83,7 @@
     <h2 class="text-center">이달의 맛 BEST9</h2>
     <section class="text-center">
       <!-- 이 곳에 article 태그가 추가되도록! -->
+     
     </section>
 
     <script>
@@ -101,6 +102,23 @@
         '뮤! 넌 내거야',
         '오레오 쿠키 앤 크림',
       ];
+      for(let i = 0; i<icecreams.length; i++){
+        const img = document.createElement('img');
+        img.className = 'img-box';
+        img.setAttribute('src',`./image/icecream${i + 1}.png`);
+        const h3 = document.createElement('h3');
+        h3.className = 'text-center';
+        h3.innerText = `Top ${i+1}위`;
+        const div = document.createElement('div');
+        div.className = 'text-center';
+        div.innerText = `${icecreams[i]}`;
+        const article = document.createElement('article');
+        article.className = 'article-box';
+        article.append(img);
+        article.append(h3);
+        article.append(div);
+        section.append(article);
+      }
     </script>
   </body>
 </html>
