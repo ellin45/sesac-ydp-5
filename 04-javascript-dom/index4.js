@@ -107,7 +107,7 @@ const chgInput = document.querySelector('#change-input');
 chgInput.addEventListener('change', function(e) {
     console.log('change!!!', e.target.value);
 })
-
+console.log(input);
 // input에 값이 입력 될때마다 이벤트 발생
 chgInput.addEventListener('input', function() {
     console.log('changing!!!');
