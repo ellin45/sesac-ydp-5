@@ -1,0 +1,16 @@
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #999999;
+    width:100%
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px; 
+    color: black;
+    text-align: center;
+    padding-right: 10px;
+    align-items: flex-end;
+}
