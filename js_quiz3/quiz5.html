@@ -114,8 +114,13 @@
     }
 
 
-      function drawStars4() {
+      function drawStars4(n) {
         // TODO: drawStars4() 함수 내부 코드를 채워주세요.
+        for(let i=1; i <= 2n-1; i++){
+            const spaces = ' '.repeat(n - i);
+            console.log(spaces + '*'.repeat(2*i-1));
+            //{i = 2 n = 3 출력 = 0} //''
+        }
       }
 
       function drawStars5() {
