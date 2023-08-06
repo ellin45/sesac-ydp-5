@@ -114,18 +114,30 @@
     }
 
 
-      function drawStars4(n) {
-        // TODO: drawStars4() 함수 내부 코드를 채워주세요.
-        for(let i=1; i <= 2n-1; i++){
+        function drawStars4(n) {
+        // Top half of the diamond
+        for (let i = 1; i <= n; i++) {
             const spaces = ' '.repeat(n - i);
-            console.log(spaces + '*'.repeat(2*i-1));
-            //{i = 2 n = 3 출력 = 0} //''
+            console.log(spaces + '*'.repeat(2 * i - 1) + spaces);
         }
-      }
+        
+        // Middle line for a more balanced look
+        console.log('*'.repeat(2 * n - 1));
+        
+        // Bottom half reducing to 3 stars and then 1 star
+        for (let i = 2; i >= 1; i--) {
+            const spaces = ' '.repeat(n - i);
+            console.log(spaces + '*'.repeat(2 * i - 1) + spaces);
+        }
+    }
 
-      function drawStars5() {
-        // TODO: drawStars5() 함수 내부 코드를 채워주세요.
-      }
+            function drawStars5(n) {
+            for (let i = 0; i < n; i++) {
+                const spaces = ' '.repeat(n - i -1);
+                console.log(spaces + '*'.repeat(n));
+            }
+        }
+      
 
       // TODO: 해당 html 파일을 실행한 브라우저 콘솔창에서 drawStars ~ drawStars5 함수를 호출해주세요!
       // drawStars(3);
