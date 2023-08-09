@@ -12,14 +12,15 @@ const server = http.createServer(function(request, response) {
 
     try{
     //html 파일 불러오기
-    const data = fs.readFileSync('./index.html');
+    const data = fs.readFileSync('./index2.html');
     response.writeHead(200, {'content-type': 'text/html; charset=utf8'});
     response.write(data);
     response.end();
     }catch(error){
+        const data404 = fs.readFileSync('./404.html');
         console.error(error)
-        response.writeHead(404);
-        response.write('존재하지 않는 파일입니다. 다시 요청해주세요!');
+        response.writeHead(404, {'content-type': 'text/html; charset=utf8'});
+        response.write(data404);
         response.end();
     }
 });
