@@ -6,7 +6,7 @@ const PORT = 8080;
 app.set('view engine', 'ejs');
 //미들웨어
 app.use('/views', express.static(__dirname + '/views'));
-app.use('/public', express.static(__dirname + '/static'));
+app.use('/public', express.static(__dirname + 'static'));
 const idFromDB = 'banana';
 const pwFromDB = '1234qwer';
 

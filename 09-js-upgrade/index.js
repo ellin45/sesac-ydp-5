@@ -179,9 +179,11 @@ const house2 = new House(2007, '자이','10');
 // let rec1 = new Shape(3,4);
 // console.log(rec1.getArea());
 
-//클래스 상속
-//부모 클래스 : House
-//자식 클래스 Apartment
+// 클래스 상속
+// 부모 클래스 : House
+// 자식 클래스 Apartment
+
+console.clear();
 class Apartment extends House {
     constructor(year, name, window, floor, windowMaker) {
         //부모 객체에서 상속받아옴 = 상속한 부모 클래스의 생성자를 호출
@@ -200,57 +202,51 @@ class Apartment extends House {
 }
 
 const apt1 = new Apartment(2022, '래미안', 3, 20, 'KCC');
+console.log(!1111);
 console.log(apt1);
 console.log(apt1.getAptInfo());
 console.log(apt1.getWindow());
 
 
 class Shape {
-    constructor(width, height) {
+    constructor(width,height){
         this.width = width;
         this.height = height;
     }
-
-    getArea() {
+    getArea(){
         return this.width * this.height;
     }
 }
 
 class Rectangle extends Shape {
-    constructor(width, height) {
+    constructor(width, height){
         super(width, height);
     }
-
-    getDiagonal() {
+    getArea(){
         return Math.sqrt(this.width ** 2 + this.height ** 2);
     }
 }
-
 class Triangle extends Shape {
-    constructor(width, height) {
+    constructor(width, height){
         super(width, height);
     }
-
-    getArea() {
-        return (this.width * this.height) / 2;
+    getArea(){
+        return super.getArea() /2
     }
 }
-
 class Circle extends Shape {
-    constructor(width, height, radius) {
+    constructor(width, height, radius){
         super(width, height);
         this.radius = radius;
     }
-
-    getArea() {
-        return Math.PI * this.radius ** 2;
+    getArea(){
+        return (this.width * this.height * Math.PI) /2
     }
 }
+let rec1 = new Rectangle(3,3);
+let tri1 = new Triangle(3,3);
+let cir1 = new Circle(3,3);
 
-const rec = new Rectangle(4, 4);
-const tri = new Triangle(4, 4);
-const cir = new Circle(4, 4, 4);
-console.log(rec.getArea());
-console.log(rec.getDiagonal());
-console.log(tri.getArea());
-console.log(cir.getArea());
+console.log(rec1.getArea())
+console.log(tri1.getArea())
+console.log(cir1.getArea())
