@@ -3,27 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인창</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <h1 style="text-align: center">로그인</h1>
-    <div class="login" style="text-align: center">
-      <label for="text">ID</label>
-      <input type="text" />
-      <br />
-      <label for="text">PW</label>
-      <input type="text" />
-      <br />
-      <button href="/login">로그인</button>
-      <button href="/register">회원가입</button>
+    <%- include('./include/head', {title: 'login'}) %>
 
-      <div class="dropdown-menu" style="display: block !important">
+  </head>
+  <style>
+    body{
+      display: flex; 
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .dropdown-menu{
+      display: block !important;
+      text-align:center;
+    }
+  </style>
+  <body>
+    <div class="dropdown-menu">
+        <h2>Log In</h2>
         <form class="px-4 py-3">
           <div class="mb-3">
             <label for="exampleDropdownFormEmail1" class="form-label"
@@ -66,10 +63,6 @@
         <a class="dropdown-item" href="#">Forgot password?</a>
       </div>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-      crossorigin="anonymous"
-    ></script>
+    
   </body>
 </html>
