@@ -10,21 +10,58 @@
     <script>
         // 1. 1초 뒤에 body 태그의 색상을 빨간색 변경 (setTimeout)
         // 2. 1초 뒤에 body 태그의 색상을 빨 -> 1초 뒤 -> ... -> 1 초 뒤에 파란색
-            setTimeout(function(){
-                const body = document.body;
-                body.style.background = 'red';
-                    setTimeout(function(){
-                    const body = document.body;
-                    body.style.background = 'orange';
-                        setTimeout(function(){
-                        const body = document.body;
-                        body.style.background = 'yellow';
-                    },1000)
-                },1000)
-            },1000)
+            // setTimeout(function(){
+            //     const body = document.body;
+            //     body.style.background = 'red';
+            //         setTimeout(function(){
+            //         const body = document.body;
+            //         body.style.background = 'orange';
+            //             setTimeout(function(){
+            //             const body = document.body;
+            //             body.style.background = 'yellow';
+            //         },1000)
+            //     },1000)
+            // },1000)
 
             
-           
+    function bgChange(text){
+
+        return new Promise(function(resolve, reject){
+            setTimeout(function(){
+                document.body.style.background = text;
+                resolve(text);
+            },1000);
+        });
+        }
+
+        bgChange('purple')
+            .then((result) => {
+            result = 'orange';
+            return bgChange(result);
+            })
+            .then((result) => {
+            result = 'yellow';
+            return bgChange(result);
+            })
+            .then((result) => {
+            result = 'red';
+            return bgChange(result);
+            })
+
+            //async - await로 표기
+            async function colors(){
+                try {
+                    await bgChange('purple');
+                    await bgChange('orange');
+                    await bgChange('yellow');
+                    await
+               
+                bgChange('red');
+
+            }catch(e){
+                console.err(e);
+            }
+            }
     </script>
 </body>
 </html>
