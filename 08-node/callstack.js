@@ -4,6 +4,7 @@ function first() {
     return
 }
 
+
 function second() {
     console.log(2);
     return
