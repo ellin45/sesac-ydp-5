@@ -23,7 +23,7 @@ app.get('/practice2', (req,res)=>{
 })
 app.post('/result1', (req,res)=>{
   console.log(req.query);
-  res.render('result', { user : req.query });
+  res.render('result', { user: req.query });
 })
 app.post('/result2', (req,res)=>{
   console.log(req.body);
