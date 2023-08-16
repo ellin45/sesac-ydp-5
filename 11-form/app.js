@@ -10,40 +10,50 @@ app.set('/views', 'views');
 // app.use()
 
 // req.body 객체를 해석할 수 있도록 body-parser 미들웨어 등록
-app.use(express.urlencoded({extended : true}))
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // 라우팅(Routing) - 주소 설정
 // GET '/' => index.ejs 를 보여줌
 app.get('/', (req, res) => {
-    //res.render(ejs 경로, 데이터)
-    //ejs_경로 : views/ 폴더 내부 ejs 파일의 주소
-    //데이터 : 뷰에 넣어줄 정보
-    res.render('prac', {title : '폼 전송을 연습해 보자!'});
+  //res.render(ejs 경로, 데이터)
+  //ejs_경로 : views/ 폴더 내부 ejs 파일의 주소
+  //데이터 : 뷰에 넣어줄 정보
+  res.render('prac1', { title: '폼 전송을 연습해 보자!' });
 });
 
 //GET '/getForm' => 임의의 메세지 전송
 //get 방식은 클라이언트에서 보낸 데이터가 req.query에 저장
 app.get('/getForm', (req, res) => {
-    console.log(req.query);
-    //res.send('get 요청 성공');
-    res.render('result', {title: 'Get 요청', userInfo: req.query})
-})
+  console.log(req.query);
+  //res.send('get 요청 성공');
+  res.render('result', { title: 'Get 요청', userInfo: req.query });
+});
 app.get('/getInfo', (req, res) => {
-    console.log(req.query);
-    //res.send('get 요청 성공');
-    res.render('view', {title: 'Get 요청', userInfo: req.query})
-})
+  console.log(req.query);
+  //res.send('get 요청 성공');
+  res.render('result', { title: 'Get 요청', userInfo: req.query });
+});
 
-
+app.get('/getForm', (req, res) => {
+  console.log(req.query);
+  res.render('get', { title: 'Get 요청', userInfo: req.query });
+});
 //post '/postForm' => 임의의 메시지 전송
 // post 방식은 클라이언트에서 보낸 데이터가 req.query에 저장
 app.post('/postForm', (req, res) => {
-    console.log(req.body);
-    res.render('result', {title: 'Post 요청', userInfo: req.body})
-
-})
+  console.log(req.body);
+  res.render('index', { title: 'Post 요청', userInfo: req.body });
+});
+app.post('/postForm', (req, res) => {
+  console.log(req.body);
+  res.render('post', { title: 'Post 요청', userInfo: req.body });
+});
+app.post('/postForm3', (req, res) => {
+  console.log(req.body);
+  res.render('result1', { title: 'Post 요청', postForm3: req.body });
+});
 
 app.listen(PORT, () => {
   console.log(`${PORT} is opening`);
-})
+});

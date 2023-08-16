@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼 전송 결과</title>
+
+    <style>
+      span {
+        color: blue;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><%= title %> 폼 결과 확인하기</h1>
+    <div><span><%= postForm3.name %></span>님 환영합니다!</div>
+    <div>성별은<span><%= postForm3.gender %></span>입니다!</div>
+    <div>생년월일은 <span><%= postForm3.year %></span>이군요!</div>
+    <div>관심사는<span><%= postForm3.interest %></span> 이군요!</div>
+    <div>좋아하는 색상은<span><%= postForm3.color %></span> 이군요!</div>
+    <div>좋아하는 숫자는<span><%= postForm3.number %></span> 이군요!</div>
+  </body>
+</html>

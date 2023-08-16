@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/postForm3" method="post">
+        <div>
+        <label for="">이름</label>
+        <input type="text" name="name" >
+        </div>
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio"  name="gender"  required/>
+            <label for="contactChoice1">남자</label>
+            <input type="radio"  name="gender" required/>
+            <label for="contactChoice1">여자</label>
+        </fieldset>
+       
+        <fieldset>
+            <legend>생년월일</legend>
+            <select name="year">
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+            </select>
+            <label for="">년</label>
+            <select name="month">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <label for="">월</label>
+            <select name="date">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <label for="">일</label>
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" name="interest" id="interest">
+            <label for="interest" >여행</label>
+            <input type="checkbox" name="interest" id="interest">
+            <label for="interest" >패션</label>
+            <input type="checkbox" name="interest" id="interest">
+            <label for="interest" >음식</label>
+        </fieldset>
+        <fieldset>
+            <legend>선택</legend>
+            <label for="color" >좋아하는 색상</label>
+              <input type="color" name="color" id="color" />
+              
+            
+            <br>
+            <label for="number">좋아하는 숫자</label>
+               <input type="number" name="number" id="number" />
+              
+    
+          </fieldset>
+          <button>회원가입</button>
+    </form>
+</body>
+</html>
