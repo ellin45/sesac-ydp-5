@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 폼 전송</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+</head>
+<body>
+    <h1>동적 폼 전송 연습하기!</h1>
+
+    <form action="" name="register" method="get">
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" value="새삭">                                                                                                >
+        <br>
+
+        성별
+        <input type="radio" name="gender" value="m" id="male">
+        <label for="male">남</label>
+        <input type="radio" name="gender" value="f" id="female">
+        <label for="female">여</label>
+        <br />
+        <br />
+
+        <button type="button" onclick="ajaxGet();">Ajax Get 제출</button>
+        <button type="button" onclick="ajaxPost();">Ajax Post 제출</button>
+    </form>
+    
+    <!-- 동적 폼 전송 결과를 보여 줄 곳 -->
+    <div class="result"></div>
+
+    <script>
+        const resultBox = document.querySelector('div.result');
+
+        function ajaxGet() {
+            console.log('ajaxGet 함수 호출!')
+
+            const form = document.forms['register'];
+
+            console.dir(form);
+            console.dir(form.name);
+            console.dir(form.gender);
+            console.dir(form.name.value);
+            console.dir(form.gender.value);
+
+        // 요청에 실어서 보낼 데이터 변수 ( 서버에서 받을 정보 )
+        const data = {
+            name: form.name.value,
+            gender: form.gender.value,
+        };
+
+        //Ajax로 서버에 get 요청 보내기
+        $.ajax({
+            type: 'get', //요청 종류
+            url: '/ajax', //요청 경로
+            data: data, //요청에 실어보낼 데이터
+            success: function(data) {
+                console.log(data);
+                resultBox.textContent = `GET과 ajax로 요청받은 이름은 ${data.name}님은 ${data.gender}입니다`;
+            }
+        })
+    }
+        function ajaxPost(){
+            console.log('ajaxPost 함수 호출')
+
+            const form = document.forms['register'];
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value,
+            }
+            $.ajax({
+                type: 'post',
+                url: '/ajax',
+                data: data,
+                success: function(data) {
+                    console.log(data);
+                    resultBox.textContent = `GET과 ajax로 요청받은 이름은 ${data.name}님은 ${data.gender}입니다`;
+                }
+            })
+        }
+    </script>
+</body>
+</html>

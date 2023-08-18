@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 8000;
+const PORT = 8090;
 
 app.set('view engine', 'ejs');
 app.set('/views', 'views');
@@ -13,22 +13,19 @@ app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오�
 app.use(express.json()); // json 형식으로 데이터를 주고 받음
 
 app.get('/', (req,res)=>{
-  res.render('main');
-})
-app.get('/practice1', (req,res)=>{
-  res.render('practice1');
-})
-app.get('/practice2', (req,res)=>{
-  res.render('practice2');
-})
-app.post('/result1', (req,res)=>{
-  console.log(req.body);
-  res.render('result', { user: req.body });
-})
-app.post('/result2', (req,res)=>{
-  console.log(req.body);
-  res.render('result',{ user: req.body});
-})
+    res.render('index');
+  })
+app.get('/ajax', (req,res)=>{
+    console.log(req.query);
+    res.send(req.query);
+  })
+
+  app.post('/ajax', (req, res)=>{
+    console.log(req.body);
+    res.send(req.body);
+  })
+  
 app.listen(PORT, () => {
-  console.log(`${PORT} is opening!`);
-});
+    console.log(`${PORT} is opening!`);
+  });
+  
