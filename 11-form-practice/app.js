@@ -27,7 +27,7 @@ app.post('/result1', (req,res)=>{
 })
 app.post('/result2', (req,res)=>{
   console.log(req.body);
-  res.render('result',{ user: req.body});
+  res.render('result', { user: req.body});
 })
 app.listen(PORT, () => {
   console.log(`${PORT} is opening!`);
