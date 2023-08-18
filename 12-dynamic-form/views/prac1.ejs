@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+     <!-- jquery cdn -->
+     <script
+     src="https://code.jquery.com/jquery-3.7.0.min.js"
+     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+     crossorigin="anonymous"
+   ></script>
+
+
+   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  </head>
+  <body>
+    <h1>GET 폼 실습</h1>
+    <form>
+      <label for="username">이름</label>
+      <input type="text" name="username" id="username" />
+      <br />
+
+      <fieldset>
+        <legend>성별</legend>
+        <input type="radio" name="gender" id="male" value="male" />
+        <label for="male">남자</label>
+        <input type="radio" name="gender" id="female" value="female" />
+        <label for="female">여자</label>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="birthYear" id="year">
+          <% for (let i = 0; i < 50; i++) { %>
+          <option value="<%= 2010 - i %>"><%= 2010 - i %></option>
+          <% } %>
+        </select>
+        <label for="year">년</label>
+        <select name="birthMonth" id="month">
+          <% for (let i = 1; i < 13; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="month">월</label>
+        <select name="birthDay" id="day">
+          <% for (let i = 1; i < 31; i++) { %>
+          <option value="<%= i %>"><%= i %></option>
+          <% } %>
+        </select>
+        <label for="day">일</label>
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" name="hobby" id="travel" value="travel" />
+        <label for="travle">여행</label>
+        <input type="checkbox" name="hobby" id="fashion" value="fashion" />
+        <label for="fashion">패션</label>
+        <input type="checkbox" name="hobby" id="food" value="food" />
+        <label for="food">음식</label>
+      </fieldset>
+
+      <button type="button">회원가입</button>
+      
+      <div class="result"></div> 
+      <script>
+         function getAxios() {
+        const form = document.forms['realForm'];
+        const result = document.querySelector('#result');
+       
+        const selectedHobbies = Array.from(form.interest)
+          .filter((checkbox) => checkbox.checked)
+          .map((checkbox) => checkbox.value);
+
+        const data = {
+          name: form.userName.value,
+          gender: form.gender.value,
+          birth: form.birth.value,
+          month: form.month.value,
+          days: form.days.value,
+          interest: selectedHobbies.join(', '),
+        };
+        
+        console.log(form.interest);
+        axios({
+          url: '/getAxios',
+          method: 'GET',
+          params: data,
+        })
+          .then((res) => {
+            console.log(res);
+            console.log(res.data);
+            console.log(res.data.interest);
+            result.innerHTML = `
+          <h1> 이곳은 결과창입니다!!! </h1>
+          <ul>
+            <li>
+                        이름은 <span style="color: blue;">${res.data.name}</span>
+                        </li>
+                        <li>
+                        성별은 <span style="color: blue;">${res.data.gender}</span>이고
+                        </li>
+                        <li>
+                        생년월일은 <span style="color: blue;">${res.data.birth}년 ${res.data.month}월 ${res.data.days}일</span>
+                        </li>
+                        <li>
+                        취미는 <span style="color: blue;">${res.data.interest}</span>이군요.
+                        </li>
+          </ul>`;
+            result.style.color = 'dodgerblue';
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+        </script>
+    </form>
+  </body>
+</html>
