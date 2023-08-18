@@ -15,25 +15,25 @@ app.use(express.json()); // json 형식으로 데이터를 주고 받음
 app.get('/', (req,res)=>{
     res.render('prac1');
   })
-app.get('/ajax', (req,res)=>{
-    console.log(req.query);
-    res.send(req.query);
-  })
+// app.get('/ajax', (req,res)=>{
+//     console.log(req.query);
+//     res.send(req.query);
+//   })
 
-  app.post('/ajax', (req, res)=>{
-    console.log(req.body);
-    res.send(req.body);
-  })
+//   app.post('/ajax', (req, res)=>{
+//     console.log(req.body);
+//     res.send(req.body);
+//   })
 
   app.get('/axios',(req, res)=>{
     console.log(req.query);
     res.send(req.query);
   })
 
-  app.get('/fetch', (req, res)=> {
-    console.log(req.query);
-    res.send(req.query);
-  })
+  // app.get('/fetch', (req, res)=> {
+  //   console.log(req.query);
+  //   res.send(req.query);
+  // })
 
 
 
