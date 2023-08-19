@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- jquery cdn -->
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+ 
+    <h1> 폼 실습</h1>
+    <form name="register">
+        <label for="text">아이디</label>
+        <input type="text" name="id" value="id">
+        <br>
+        <label for="text">비밀번호</label>
+        <input type="text" name="pw" value="pw">
+        
+    </form>
+    <button type="button" onclick="getAxios()">회원가입</button>
+
+    <div class="result_success"></div>
+    <div class="result_fail"></div>
+
+    <script>
+      const resultBox = document.querySelector('div.result_success');
+      const failBox = document.querySelector('div.result_fail')  
+      const form = document.forms['register'];
+
+      async function getAxios() {
+        const userData = {
+            id: form.id.value,
+            pw: form.pw.value,
+        };
+        console.log(userData);
+        console.log('axios post 진입');
+        try {
+        const res = await axios({
+            method: 'post',
+            url: '/axios',
+            data: userData, // params -> data
+        });
+        console.log(res);
+        const {id, pw} = res.data; // res.userData -> res.data
+        if(id === 'chaelim' && pw === '1234'){
+            resultBox.textContent = `회원가입 이 완료 되었습니다!`;
+            resultBox.style.color = 'blue';
+        } else {
+            failBox.textContent = '아이디나 비밀번호를 다시 확인해 주세요';
+            failBox.style.color = 'red';
+        }
+        } catch (error) {
+            failBox.textContent = '서버와의 통신 중 에러가 발생했습니다';
+            failBox.style.color = 'red';
+        }
+    }
+
+    </script>
+  </body>
+</html>

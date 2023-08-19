@@ -15,7 +15,7 @@
   </head>
   <body>
     <h1>GET 폼 실습</h1>
-    <form>
+    <form name="register">
       <label for="username">이름</label>
       <input type="text" name="username" id="username" />
       <br />
@@ -62,58 +62,38 @@
         <label for="food">음식</label>
       </fieldset>
     </form>
-    <button type="button">회원가입</button>
+    <button type="button" onclick="getAxios()">회원가입</button>
 
     <div class="result"></div>
 
     <script>
-      function getAxios() {
-        const form = document.forms["realForm"];
-        const result = document.querySelector(".result"); // #result 를 .result로 변경
+      const resultBox = document.querySelector('div.result');
 
-        const selectedHobbies = Array.from(form.hobby) // .interest를 .hobby로 변경
-          .filter((checkbox) => checkbox.checked)
-          .map((checkbox) => checkbox.value);
-
-        const data = {
-          name: form.username.value, // form.userName을 form.username으로 변경
-          gender: form.gender.value,
-          birth: form.birthYear.value, // form.birth를 form.birthYear로 변경
-          month: form.birthMonth.value, // form.month를 form.birthMonth로 변경
-          days: form.birthDay.value, // form.days를 form.birthDay로 변경
-          interest: selectedHobbies.join(", "),
-        };
-
-        axios({
-          url: "/getAxios",
-          method: "GET",
-          params: data,
-        })
-          .then((res) => {
-            result.innerHTML = `
-              <h1> 이곳은 결과창입니다!!! </h1>
-              <ul>
-              <li>
-              이름은 <span style="color: blue;">${res.data.name}</span>
-              </li>
-              <li>
-              성별은 <span style="color: blue;">${res.data.gender}</span>이고
-              </li>
-              <li>
-              생년월일은 <span style="color: blue;">${res.data.birth}년 ${res.data.month}월 ${res.data.days}일</span>
-              </li>
-              <li>
-              취미는 <span style="color: blue;">${res.data.interest}</span>이군요.
-              </li>
-              </ul>`;
-            result.style.color = "dodgerblue";
-          })
-          .catch((err) => {
-            console.error(err);
+      const form = document.forms['register'];
+      async function getAxios() {
+          const userData = {
+            name: form.username.value,
+            gender: form.gender.value,
+            year: form.year.value,
+            month: form.month.value,
+            day: form.day.value,
+          };
+        console.log(userData);
+        console.log('axios get 진입');
+        try {
+          const res = await axios({
+            method: 'get',
+            url: '/axios',
+            params: userData,
           });
+          console.log(res);
+          const { name, gender, year, month, day} = res.data;
+          console.log(name);
+          resultBox.textContent = `${name}님의 성별은 ${gender}이고 ${year}년 ${month}월 ${day}일 생일이시군요!ㅎㅎ`;
+        } catch (error) {
+          resultBox.textContent = `알 수 없는 에러 발생`;
+        }
       }
-      const button = $("button");
-      button.click(getAxios);
     </script>
   </body>
 </html>
