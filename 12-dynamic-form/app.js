@@ -13,10 +13,13 @@ app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오�
 app.use(express.json()); // json 형식으로 데이터를 주고 받음
 
 app.get('/', (req,res)=>{
-    res.render('prac4');
+    res.render('weatherapi');
   })
 
-
+app.post('/axios', (req,res)=>{
+  console.log(res.body);
+  res.send((req.body));
+})
 // app.get('/ajax', (req,res)=>{
 //     console.log(req.query);
 //     res.send(req.query);
@@ -32,19 +35,10 @@ app.get('/', (req,res)=>{
     res.send(req.query);
   })
 
-  app.post('/axios',(req, res)=>{
-    console.log(req.body);
-    res.send(req.body);
-  })
-
- 
-
   app.post('/fetch', (req, res)=> {
     console.log(req.query);
     res.send(req.query);
   })
-
-
 
 app.listen(PORT, () => {
     console.log(`${PORT} is opening!`);

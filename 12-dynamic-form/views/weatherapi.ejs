@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" 
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>새싹 영등포 캠퍼스의 날씨 정보</h1>
+    <button type="button" onclick="fetchWeather()">오늘의 날씨</button>
+    <button type="button" onclick="fetchTemperature()">온도</button>
+
+    <div class="weather"></div>
+    <div class="temperature"></div>
+
+    <script>
+        const weatherDiv = document.querySelector('.weather');
+        const temperatureDiv = document.querySelector('.temperature');
+
+        const API_ENDPOINT = 'http://api.openweathermap.org/data/2.5/weather'; 
+        const API_KEY = 'e4f94f519e7d548ea4635f6c0f5b7e5d';
+
+        async function fetchWeather() {
+            try {
+                const response = await axios.get(`${API_ENDPOINT}?lat=37.5181&lon=126.8855&appid=${API_KEY}`);
+               
+                weatherDiv.textContent = '현재 새싹 영등포 캠퍼스의 날씨는 ' + response.data.weather[0].description + '입니다.';
+            } catch (error) {
+                weatherDiv.textContent = '서버와의 통신 중 에러가 발생했습니다';
+                weatherDiv.style.color = 'red';
+            }
+        }
+
+        async function fetchTemperature() {
+        try {
+            const response = await axios.get(`${API_ENDPOINT}?lat=37.5181&lon=126.8855&appid=${API_KEY}&units=metric`); // units=metric 추가 섭씨로 바꿔주는 옵션
+            temperatureDiv.textContent = '현재 새싹 영등포 캠퍼스의 온도는 ' + response.data.main.temp + '°C 입니다.'; 
+        } catch (error) {
+            temperatureDiv.textContent = '서버와의 통신 중 에러가 발생했습니다';
+            temperatureDiv.style.color = 'red';
+        }
+    }
+    </script>
+</body>
+</html>
