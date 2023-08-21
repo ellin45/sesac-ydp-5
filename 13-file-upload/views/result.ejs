@@ -7,12 +7,13 @@
 </head>
 <body>
     <form action="/result" method="POST">
-        <img href="/uploads[0]"></img>
+        <img src="<%= uploads[0] %>"></img>
+
         <ul>
-            <li> <%= user.ID %> 님 환영합니다!</li>
-            <li> 비밀번호 : <%= user.PW %></li>
-            <li> 이름 : <%= user.name %></li>
-            <li> 나이 : <%= user.age %></li>
+            <li> <%= userData.ID %> 님 환영합니다!</li>
+            <li> 비밀번호 : <%= userData.PW %></li>
+            <li> 이름 : <%= userData.name %></li>
+            <li> 나이 : <%= userData.age %></li>
         </ul>
 </form>
 </body>

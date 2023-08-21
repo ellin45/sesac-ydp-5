@@ -29,6 +29,7 @@ const uploadDetail = multer({
 
 app.set('view engine', 'ejs');
 app.use('/views', express.static(__dirname + '/views'));
+app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -84,9 +85,28 @@ app.post(
     res.send('하나의 인풋에 여러 파일 업로드 완료!');
   }
 );
+
+// 동적 폼 전송
+app.post('/dynamicFile',uploadDetail.single('dynamicUserfile'), (req,res)=>{
+  console.log(req.file);
+  res.send(req.file);
+})
+
+//prac1.ejs, result.ejs
+app.post('/some-route', (req, res) => {
+  const userData = {
+      ID: "someID",
+      PW: "somePassword",
+      name: "someName",
+      age: "someAge"
+  };
+
+  res.render('result', { user: userData });
+});
+
 app.post(
-  '/upload/fields',
-  uploadDetail.fields([{ name: 'userfile1' }, { name: 'userfile2' }]),
+  '/upload/user',
+  uploadDetail.single('userfile'),
   (req, res) => {
     console.log(req.files); // { userfile1: [ {파일_정보} ], userfile2: [ {파일_정보} ]} 객체 안에 배열 형태로 각 파일 정보
     console.log(req.body);
