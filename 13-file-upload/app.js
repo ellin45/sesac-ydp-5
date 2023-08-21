@@ -6,7 +6,7 @@ const PORT = 8120;
 const multer = require('multer');
 const path = require('path'); // 경로에 관한 내장 모듈
 const upload = multer({
-  dest: 'uploads/', // dest: 클라이언트가 업로드한 파일을 저장할 서버측 경로
+  dest: '../uploads/', // dest: 클라이언트가 업로드한 파일을 저장할 서버측 경로
 });
 // multer 세부 설정
 const uploadDetail = multer({
@@ -37,9 +37,9 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.render('prac1');
 });
-app.post('/result', (req, res) => {
-  res.render('result');
-});
+// app.post('/result', (req, res) => {
+//   res.render('result');
+// });
 // 1. single(): 하나의 파일을 업로드
 // upload.single('userfile'): 클라이언트의 요청이 들어오면
 // multer 설정(upload 변수)에 따라 파일을 업로드 한 후, req.file 객체 생성
@@ -94,28 +94,20 @@ app.post('/dynamicFile',uploadDetail.single('dynamicUserfile'), (req,res)=>{
 })
 
 //prac1.ejs, result.ejs
-app.post('/practice', uploadDetail.single('userfiles'), (req, res) => {
+app.post('/result', uploadDetail.single('userfiles'), (req, res) => {
+
   const userData = {
-      ID: req.body.ID,
-      PW: req.body.PW,
-      name: req.body.name,
-      age: req.body.age
-  };
-
-  if (req.file) {
-      userData.filePath = '/uploads/' + req.file.filename;
+    ID : req.body.ID,
+    PW : req.body.PW,
+    name : req.body.name,
+    age : req.body.age,
   }
-
-  res.render('result', { user: userData });
+  console.log(req.body);
+  console.log(req.file);
+  res.render('result', {userfilesImg : req.file , userData : req.body});
 });
-app.post('/upload/user',
-  uploadDetail.single('userfile'),
-  (req, res) => {
-    console.log(req.files); // { userfile1: [ {파일_정보} ], userfile2: [ {파일_정보} ]} 객체 안에 배열 형태로 각 파일 정보
-    console.log(req.body);
-    res.send('하나의 인풋에 여러 파일 업로드 완료!');
-  }
-);
+
+
 
 app.listen(PORT, function () {
   console.log(`Port ${PORT} is opening!`);

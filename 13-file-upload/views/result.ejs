@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>결과창</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <form action="/result" method="POST">
-        <img src="<%= user.filepath %>"></img>
+        <img src="<%= userfilesImg.path %>"></img>
 
         <ul>
             <li> <%= userData.ID %> 님 환영합니다!</li>
@@ -15,6 +15,6 @@
             <li> 이름 : <%= userData.name %></li>
             <li> 나이 : <%= userData.age %></li>
         </ul>
-</form>
+
 </body>
 </html>

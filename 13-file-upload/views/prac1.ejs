@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>파일 업로드</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <h1>회원가입</h1>
-    <form action="/practice" method="POST" >
+    <form action="/result" method="POST" enctype="multipart/form-data">
         <input type="text" name="ID" placeholder="아이디"><br />
-        <input type="text" name="PW" placeholder="비밀번호"/> <br/>
+        <input type="password" name="PW" placeholder="비밀번호"/> <br/>
         <input type="text" name="name" placeholder="이름"/> <br/>
-        <input type="text" name="age" placeholder="나이"/> <br/>
+        <input type="number" name="age" placeholder="나이"/> <br/>
         <input type="file" name="userfiles" id="dynamic-file" multiple><br />
         <button type="submit">회원가입</button>
     </form>
