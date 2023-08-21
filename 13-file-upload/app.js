@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 8110;
+const PORT = 8120;
 
 // multer 관련 설정
 const multer = require('multer');
@@ -20,7 +20,8 @@ const uploadDetail = multer({
     },
     filename(req, file, done) {
       const ext = path.extname(file.originalname); // 파일 "확장자"를 추출
-      done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+      const userId = req.body.ID;
+      done(null, userId + ext);
     },
   }),
   // limits: 파일 제한 정보
@@ -93,19 +94,23 @@ app.post('/dynamicFile',uploadDetail.single('dynamicUserfile'), (req,res)=>{
 })
 
 //prac1.ejs, result.ejs
-app.post('/some-route', (req, res) => {
+app.post('/practice', uploadDetail.single('userfiles'), (req, res) => {
   const userData = {
-      ID: "someID",
-      PW: "somePassword",
-      name: "someName",
-      age: "someAge"
+      ID: req.body.ID,
+      PW: req.body.PW,
+      name: req.body.name,
+      age: req.body.age
   };
 
+  if (req.file) {
+      userData.filePath = '/uploads/' + req.file.filename;
+  }
+
   res.render('result', { user: userData });
+  console.log(req.file);
 });
 
-app.post(
-  '/upload/user',
+app.post('/upload/user',
   uploadDetail.single('userfile'),
   (req, res) => {
     console.log(req.files); // { userfile1: [ {파일_정보} ], userfile2: [ {파일_정보} ]} 객체 안에 배열 형태로 각 파일 정보
