@@ -19,10 +19,10 @@ const uploadDetail = multer({
       done(null, 'uploads/'); // 파일을 업로드할 경로 설정
     },
     filename(req, file, done) {
-      const ext = path.extname(file.originalname); // 파일 "확장자"를 추출
-      const userId = req.body.ID;
-      done(null, userId + ext);
-    },
+      const ext = path.extname(file.originalname);
+      const userId = req.body.ID; // 유저 아이디 가져오기
+      done(null, userId + ext);  // 아이디와 확장자로 파일명 결정
+  },
   }),
   // limits: 파일 제한 정보
   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
@@ -107,9 +107,7 @@ app.post('/practice', uploadDetail.single('userfiles'), (req, res) => {
   }
 
   res.render('result', { user: userData });
-  console.log(req.file);
 });
-
 app.post('/upload/user',
   uploadDetail.single('userfile'),
   (req, res) => {
@@ -122,3 +120,4 @@ app.post('/upload/user',
 app.listen(PORT, function () {
   console.log(`Port ${PORT} is opening!`);
 });
+
