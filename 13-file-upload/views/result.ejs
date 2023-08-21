@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과창</title>
+</head>
+<body>
+    <form action="/result" method="POST">
+        <img href="/uploads[0]"></img>
+        <ul>
+            <li> <%= user.ID %> 님 환영합니다!</li>
+            <li> 비밀번호 : <%= user.PW %></li>
+            <li> 이름 : <%= user.name %></li>
+            <li> 나이 : <%= user.age %></li>
+        </ul>
+</form>
+</body>
+</html>
