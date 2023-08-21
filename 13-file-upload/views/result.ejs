@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>결과창</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../static/index.css">
 </head>
 <body>
         <img src="<%= userfilesImg.path %>"></img>
-
+    <div class="card">
+        <h3> <%= userData.ID %> 님 환영합니다!</h3>
         <ul>
-            <li> <%= userData.ID %> 님 환영합니다!</li>
             <li> 비밀번호 : <%= userData.PW %></li>
             <li> 이름 : <%= userData.name %></li>
             <li> 나이 : <%= userData.age %></li>
         </ul>
-
+    </div>
 </body>
 </html>
