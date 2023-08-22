@@ -55,7 +55,7 @@
       <fieldset>
         <legend>관심사</legend>
         <input type="checkbox" name="hobby" id="travel" value="travel" />
-        <label for="travle">여행</label>
+        <label for="travel">여행</label>
         <input type="checkbox" name="hobby" id="fashion" value="fashion" />
         <label for="fashion">패션</label>
         <input type="checkbox" name="hobby" id="food" value="food" />
@@ -68,32 +68,49 @@
 
     <script>
       const resultBox = document.querySelector('div.result');
-
       const form = document.forms['register'];
+
       async function getAxios() {
           const userData = {
-            name: form.username.value,
-            gender: form.gender.value,
-            year: form.year.value,
-            month: form.month.value,
-            day: form.day.value,
+              name: form.username.value,
+              gender: form.gender.value,
+              year: form.year.value,
+              month: form.month.value,
+              day: form.day.value,
           };
-        console.log(userData);
-        console.log('axios get 진입');
-        try {
-          const res = await axios({
-            method: 'get',
-            url: '/axios',
-            params: userData,
-          });
-          console.log(res);
-          const { name, gender, year, month, day} = res.data;
-          console.log(name);
-          resultBox.textContent = `${name}님의 성별은 ${gender}이고 ${year}년 ${month}월 ${day}일 생일이시군요!ㅎㅎ`;
-        } catch (error) {
-          resultBox.textContent = `알 수 없는 에러 발생`;
+
+    console.log(userData);
+    console.log('axios get 진입');
+
+    try {
+        if (!form.username.checkValidity()) {
+            resultBox.textContent = '이름을 입력해 주세요';
+        } else if (!form.gender.checkValidity()) {
+            resultBox.textContent = '성별을 선택 해 주세요!';
+        } else if (!form.year.checkValidity()) {
+            resultBox.textContent = '생년월일 연도를 선택해주세요';
+        } else if (!form.month.checkValidity()) {
+            resultBox.textContent = '생년월일 몇 월인지 선택해주세요';
+        } else if (!form.day.checkValidity()) {
+            resultBox.textContent = '생년월일 몇 일인지 선택해주세요';
+        } else {
+            const res = await axios({
+                method: 'get',
+                url: '/axios',
+                params: userData,
+            });
+
+            console.log(res);
+
+            const { name, gender, year, month, day } = res.data;
+            console.log(name);
+            resultBox.textContent = `${name}님의 성별은 ${gender}이고 ${year}년 ${month}월 ${day}일 생일이시군요!ㅎㅎ`;
         }
-      }
+    } catch (error) {
+        resultBox.textContent = `알 수 없는 에러 발생`;
+    }
+}
+
     </script>
   </body>
 </html>

@@ -13,9 +13,11 @@ app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오�
 app.use(express.json()); // json 형식으로 데이터를 주고 받음
 
 app.get('/', (req,res)=>{
-    res.render('index');
+    res.render('prac2');
   })
-
+app.post('/', (req, res) => {
+    res.render('prac2');
+})
 app.post('/axios', (req,res)=>{
   console.log(res.body);
   res.send((req.body));
