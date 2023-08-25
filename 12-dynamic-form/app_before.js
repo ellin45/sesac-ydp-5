@@ -12,12 +12,35 @@ app.set('/views', 'views');
 app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오는 모든 형식의 데이터를 파싱
 app.use(express.json()); // json 형식으로 데이터를 주고 받음
 
-const indexRouter = require('./routes');
-app.use('/', indexRouter);
-
-app.get('*', (req,res)=>{
-  res.render('404');
+app.get('/', (req,res)=>{
+    res.render('prac2');
+  })
+app.post('/', (req, res) => {
+    res.render('prac2');
 })
+app.post('/axios', (req,res)=>{
+  console.log(res.body);
+  res.send((req.body));
+})
+// app.get('/ajax', (req,res)=>{
+//     console.log(req.query);
+//     res.send(req.query);
+//   })
+
+  app.post('/ajax', (req, res)=>{
+    console.log(req.body);
+    res.send(req.body);
+  })
+
+  app.get('/axios',(req, res)=>{
+    console.log(req.query);
+    res.send(req.query);
+  })
+
+  app.post('/fetch', (req, res)=> {
+    console.log(req.query);
+    res.send(req.query);
+  })
 
 app.listen(PORT, () => {
     console.log(`${PORT} is opening!`);
