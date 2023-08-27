@@ -4,7 +4,6 @@ const PORT = 8000;
 
 app.set('view engine', 'ejs');
 app.use('/views', express.static(__dirname + '/views'));
-app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use('/static', express.static(__dirname + '/static'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

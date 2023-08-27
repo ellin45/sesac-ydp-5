@@ -1,7 +1,7 @@
 // 모듈
 // 경로 선언과 관련된 내용 기술
 const express = require('express');
-const controller = require('../controller/cmain')
+const controller = require('../controller/Cmain')
 const router = express.Router();
 
 router.get('/', controller.main);
@@ -73,10 +73,7 @@ router.get('/comments/:id', controller.comment);
 
 
 
-router.get('/test/:id/:name', (req,res)=>{
-    console.log(req.params);
-    res.send('test res success!');
-});
+
 
 
 //module.exports 구문을 통해 router 내보내야 다른 모듈(파일)에서 router 객체를 사용 가능 
