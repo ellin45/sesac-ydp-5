@@ -12,8 +12,8 @@ app.set('/views', 'views');
 app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오는 모든 형식의 데이터를 파싱
 app.use(express.json()); // json 형식으로 데이터를 주고 받음
 
-const indexRouter = require('./routes');
-app.use('/', indexRouter);
+const userRoutes = require('./routes/userRoutes');
+app.use('/', userRoutes);
 
 app.get('*', (req,res)=>{
   res.render('404');

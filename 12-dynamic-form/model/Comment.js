@@ -1,3 +1,0 @@
-exports.getCommentAll = () => {
-    return[];
-}
