@@ -14,5 +14,17 @@ exports.getVisitors = (req, res) => {
         console.log('controller >> ', result)
         res.render('visitor', {data: result});
     })
+
     
 };
+
+
+
+exports.postVisitor = (req, res) => {
+    console.log(req.body);
+    
+    Visitor.postVisitor(req.body, (insertId) => {
+        console.log('controller >> ', insertId);
+        res.send({id: insertId, name : req.body.name, comment: req.body.comment})
+    })
+}
