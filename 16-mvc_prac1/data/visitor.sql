@@ -14,7 +14,7 @@ select * from visitor;
 
 insert into visitor(id, name, comment) values('1', '홍길동', '내가 왔다');
 insert into visitor(id, name, comment) values('2', '이찬혁', '으라차차');
-
+insert into visitor(id, name, comment) values('3', '이수현', '후라이의 꿈');
 show databases;
 
 drop database data;
