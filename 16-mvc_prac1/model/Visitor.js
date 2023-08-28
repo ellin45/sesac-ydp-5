@@ -52,3 +52,16 @@
   
   
     }
+
+  exports.deleteVisitor = (id, callback) => {
+    console.log('model >>', id) // front에서 알려준 삭제할 데이터의 pk
+
+    conn.query(`delete from visitor where id=${id}`, (err, rows) => {
+      if(err){
+        throw err;
+      }
+
+      console.log('model >>',rows);
+      callback(true);
+    })
+  }
