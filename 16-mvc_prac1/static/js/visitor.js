@@ -54,7 +54,7 @@ function createVisitor() {
         method: 'delete',
         url: '/visitor',
         data: {
-          id: id,
+          id,
         },
       }).then((res) => {
         console.log('delete /visitor 요청에 대한 응답', res.data);
