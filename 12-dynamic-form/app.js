@@ -9,14 +9,15 @@ app.set('/views', 'views');
 // app.use()
 
 // req.body 객체를 해석할 수 있도록 body-parser 미들웨어 등록
+app.use('/views',express.static(__dirname + '/views'));
 app.use(express.urlencoded({ extended: true })); // post 요청으로 들어오는 모든 형식의 데이터를 파싱
 app.use(express.json()); // json 형식으로 데이터를 주고 받음
 
 const userRoutes = require('./routes/userRoutes');
 app.use('/', userRoutes);
 
-app.get('*', (req,res)=>{
-  res.render('404');
+app.use((req,res)=>{
+  res.status(404).render('404');
 })
 
 app.listen(PORT, () => {

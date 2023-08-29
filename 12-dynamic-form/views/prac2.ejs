@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
     <!-- jquery cdn -->
-    <script
-      src="https://code.jquery.com/jquery-3.7.0.min.js"
-      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
-      crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
-  <body>
- 
-    <h1> post 폼 실습</h1>
-    <form name="register">
-        <label for="text">아이디</label>
-        <input type="text" name="id" placeholder="ID" required>
-        <br>
-        <label for="text">비밀번호</label>
-        <input type="password" name="pw" placeholder="password" required>
-    </form>
-    <button type="button" onclick="getAxios()">회원가입</button>
 
-    <div class="result_success"></div>
-    <div class="result_fail"></div>
+    <style>
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
 
-    <script>
-      const resultBox = document.querySelector('div.result_success');
-      const failBox = document.querySelector('div.result_fail')  
-      const form = document.forms['register'];
+<h1> post 폼 실습</h1>
+<form name="register">
+    <label for="text">아이디</label>
+    <input type="text" name="id" placeholder="ID" required>
+    <br>
+    <label for="text">비밀번호</label>
+    <input type="password" name="pw" placeholder="password" required>
+</form>
+<button type="button" onclick="getAxios()">회원가입</button>
 
-      async function getAxios() {
-        const userData = {
-            id: form.id.value,
-            pw: form.pw.value,
-        };
-        console.log(userData);
-        console.log('axios post 진입');
+<div class="result_success"></div>
+<div class="result_fail"></div>
+
+<script>
+    const resultBox = document.querySelector('div.result_success');
+    const failBox = document.querySelector('div.result_fail');
+    const form = document.forms['register'];
+
+   
+    async function getAxios() {
+      const userData = {
+        userId: form.id.value,
+        userPw: form.pw.value,
+      };
+      console.log(userData);
+      console.log('axios post 진입');
         try {
-          if(!form.id.checkValidity()){
-            failBox.textContent = `아이디를 다시 확인해 주세요`;
-          }else if(!form.pw.checkValidity()){
-            failBox.textContent = `비밀번호를 다시 확인해 주세요`;
-          }else{
-            const res = await axios({
-                method: 'post',
-                url: '/axios',
-                data: userData, // params -> data
-            });
-            console.log(res);
-          
-        const {id, pw} = res.data; // res.userData -> res.data
-        if(id === 'chaelim' && pw === '1234'){
-            resultBox.textContent = `회원가입 이 완료 되었습니다!`;
-            resultBox.style.color = 'blue';
+      if(!form.id.checkValidity()) {
+        failBox.textContent = `아이디를 다시 확인해 주세요`;
+      } else if(!form.pw.checkValidity()) {
+        failBox.textContent = `비밀번호를 다시 확인해 주세요`;
+      } else {
+        const response = await axios.post('/practice1', userData);
+
+        const { userInfo, isSuccess } = response.data;
+        if (isSuccess) {
+          resultBox.textContent = `${userInfo.name}님! 로그인 성공😁`;
+          resultBox.classList.remove('error');
+          resultBox.classList.add('success');
         } else {
-            failBox.textContent = '아이디나 비밀번호를 다시 확인해 주세요';
-            failBox.style.color = 'red';
+          resultBox.textContent = '아이디 또는 패스워드 오류😥';
+          resultBox.classList.remove('success');
+          resultBox.classList.add('error');
         }
       }
-        } catch (error) {
-            failBox.textContent = '서버와의 통신 중 에러가 발생했습니다';
-            failBox.style.color = 'red';
-        }
+    } catch (error) {
+      failBox.textContent = '서버와의 통신 중 에러가 발생했습니다';
+      failBox.classList.remove('success');
+      failBox.classList.add('error');
     }
-
-    </script>
-  </body>
+  }
+</script>
+</body>
 </html>

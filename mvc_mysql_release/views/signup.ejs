@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include('include/include', { title: '회원가입' })%>
+  <body>
+    <h1>회원가입</h1>
+    <form name="form_register">
+      <label for="userid">ID</label>
+      <input id="userid" type="text" name="userid" required /><br />
+      <label for="password">Password</label>
+      <input id="password" type="password" name="pw" required /><br />
+      <label for="nickname">Name </label>
+      <input id="nickname" type="text" name="name" required /><br />
+      <button type="button" onclick="register();">Register</button>
+    </form>
+    <!-- TODO: href 속성값 설정하기 -->
+    <a href="/user/signin">Login</a>
+
+    <script>
+      // TODO: [Register] 버튼 클릭시 서버에 회원가입 요청하기
+      // POST /user/signup
+      
+      
+      function register() {
+        const form = document.forms['form_register'];
+        const userData = {
+          id : form.userid.value,
+          pw : form.pw.value,
+          name : form.name.value,
+        }
+          if(!id){
+            alert('아이디를 입력해 주세요.');
+          }else if(!pw){
+            alert('비밀번호를 입력해 주세요.');
+          }else if(!name){
+            alert('이름을 입력해 주세요');
+          }else{
+            axios({
+              method: 'POST',
+              url: '/user/signup',
+              data: 'userData',
+            })
+            .then((result) => {
+              alert('회원가입 완료 했습니다.');
+              document.location.href = '/user/signin'
+            })
+            .catch((err)=>{
+              throw err;
+            })
+
+          }
+        
+      }
+
+
+  
+
+        
+    </script>
+  </body>
+</html>

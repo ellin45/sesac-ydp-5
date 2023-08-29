@@ -38,3 +38,4 @@ exports.deleteVisitor = (req, res) => {
         res.send(result);
     })
 }
+
