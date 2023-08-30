@@ -12,10 +12,10 @@ const conn = mysql.createConnection({
 exports.postSignUp = (user,cd) => {
     conn.query(
 
-        `INSERT INTO user VALUES(NULL, "${user.userid}", "${user.pw}","${user.name}",)`,
+        `INSERT INTO user VALUES(NULL, "${userData.id}", "${userData.pw}","${userData.name}",)`,
         (err, rows) => {
             if(err) {
-                throw err;
+                console.log(err);
             }
             cd(rows);
         }
@@ -24,10 +24,10 @@ exports.postSignUp = (user,cd) => {
 
 exports.signin = (user,cb) => {
     conn.query(
-        `SELECT * FROM user WHERE userid = "${user.user.id}" AND pw = "${user.pw}"`,
+        `SELECT * FROM user WHERE userid = "${userData.id}" AND pw = "${userData.pw}"`,
         (err, rows) => {
             if(err) {
-                throw err;
+                console.log(err);
             }
             cb(rows);
         }
@@ -37,10 +37,10 @@ exports.signin = (user,cb) => {
 
 exports.profile = (user, cb) => {
     conn.query (
-        `SELECT * FROM user WHERE userid = "${user}" `,
+        `SELECT * FROM user WHERE userid = "${userData}" `,
         (err, rows) => {
             if(err){
-                throw err;
+                console.log(err);
             }
             cb(rows);
         }
@@ -50,11 +50,11 @@ exports.profile = (user, cb) => {
 
 exports.editProfile = (user, cb) => {
     conn.query (
-        `SELECT * FROM user WHERE userid = "${user.userid}", name = "${user.name}",pw = "${user.pw}" WHERE userid = "${user.user.id}
+        `SELECT * FROM user WHERE userid = "${userData.id}", name = "${userData.name}",pw = "${user.pw}" WHERE userid = "${user.user.id}
          `,
         (err, rows) => {
             if(err){
-                throw err;
+                console.log(err);
             }
             cb(rows);
         }
@@ -66,7 +66,7 @@ exports.deleteUser = (user, cd) => {
         `DELETE FROM user WHERE userid = "${user.userid}" `,
         (err, rows) => {
             if(err){
-                throw err;
+                console.log(err);
             }
             cd(rows);
         }

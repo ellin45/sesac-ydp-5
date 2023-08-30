@@ -65,3 +65,26 @@
       callback(true);
     })
   }
+
+  exports.getVisitor = (id, cb)=> {
+    conn.query(`select * from visitor where id = ${id}`, (err,rows)=>{
+      if(err){
+        throw err
+      }
+      console.log(rows);
+      cb(rows[0]);
+    })
+  }
+
+  exports.updateVisitor = (updateData, callback) => {
+    const { id, name, comment } = updateData;
+    const sql = `update visitor set name='${name}', comment='${comment}' where id=${id}`;
+    conn.query(sql, (err, rows) => {
+      if (err) {
+        throw err;
+      }
+  
+      console.log(rows);
+      callback();
+    });
+  };

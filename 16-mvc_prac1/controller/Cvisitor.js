@@ -39,3 +39,23 @@ exports.deleteVisitor = (req, res) => {
     })
 }
 
+exports.getVisitor = (req, res)=>{
+    console.log(req.params);
+    // GET/visitor/:id param 썼을때
+    const { id } = req.params;
+
+    Visitor.getVisitor(id,(result) =>{
+        console.log(result);
+        res.send(result);
+    })
+
+    // res.send('임시 응답!');
+}
+
+exports.updateVisitor = (req, res) => {
+    console.log(req.body); // {id: x, name: x, comment: x}
+  
+    Visitor.updateVisitor(req.body, () => {
+      res.send({ isUpdated: true });
+    });
+  };
