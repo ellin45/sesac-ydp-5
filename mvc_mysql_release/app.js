@@ -10,12 +10,12 @@ app.use(express.json());
 
 // TODO: 라우팅 분리
 // 기본 주소: localhost:PORT/user <- 주의!!
-const router = require('./routes/user');
-app.use('/', router);
+const indexRouter = require('./routes/user');
+app.use('/user', indexRouter);
 
 // TODO: 404 에러 처리
 app.get('*',(req,res)=>{
-  res.status(404).render('404');
+  res.render('404');
 })
 
 app.listen(PORT, () => {

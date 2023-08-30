@@ -20,6 +20,7 @@
       <button type="button" onclick="profileEdit();">Edit</button>
       <button type="button" onclick="profileDelete();">Delete</button>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
       // TODO: [Login] 버튼 클릭시 서버에 회원 정보 수정 요청하기
@@ -40,7 +41,7 @@
           axios({
               method: 'POST',
               url: '/user/profile/edit',
-              data: 'userData',
+              data: userData,
             })
             .then((result)=> {
               alert('정보 수정에 성공하였습니다')
