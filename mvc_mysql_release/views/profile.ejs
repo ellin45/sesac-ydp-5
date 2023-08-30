@@ -32,9 +32,9 @@
           name : form.name.value,
         }
 
-        if(!pw){
+        if(!userData.pw){
           alert('비밀번호를 입력해주세요!')
-        }else if(!name){
+        }else if(!userData.name){
           alert('성함을 입력 해주세요!')
         }else {
           axios({
@@ -55,9 +55,9 @@
       function profileDelete() {
         const form = document.register['form_profile'];
 
-        if(!pw){
+        if(!userData.pw){
           alert('비밀번호를 입력해 주세요!')
-        }else if(!name){
+        }else if(!userData.name){
           alert('성함을 입력해주세요!')
         }else{
           axios({
@@ -73,7 +73,7 @@
             document.location.href = '/user';
           })
           .catch((err)=>{
-            throw err;
+            console.log(err);
           });
 
         }

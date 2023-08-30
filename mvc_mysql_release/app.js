@@ -15,7 +15,7 @@ app.use('/', router);
 
 // TODO: 404 에러 처리
 app.get('*',(req,res)=>{
-  res.status(404).render(404);
+  res.status(404).render('404');
 })
 
 app.listen(PORT, () => {

@@ -9,25 +9,26 @@ const conn = mysql.createConnection({
     database: 'codingon',
 })
 
-exports.postSignUp = (user,cd) => {
+exports.postSignUp = (user,cb) => {
     conn.query(
 
-        `INSERT INTO user VALUES(NULL, "${userData.id}", "${userData.pw}","${userData.name}",)`,
+        `INSERT INTO user VALUES(NULL, "${user.userData.id}", "${user.pw}","${user.name}")`,
         (err, rows) => {
             if(err) {
-                console.log(err);
+                throw err;
+            
             }
-            cd(rows);
+            cb(rows);
         }
     )
 }
 
 exports.signin = (user,cb) => {
     conn.query(
-        `SELECT * FROM user WHERE userid = "${userData.id}" AND pw = "${userData.pw}"`,
+        `SELECT * FROM user WHERE userid = "${user.userid}" AND pw = "${user.pw}"`,
         (err, rows) => {
             if(err) {
-                console.log(err);
+                throw err;
             }
             cb(rows);
         }
@@ -37,10 +38,10 @@ exports.signin = (user,cb) => {
 
 exports.profile = (user, cb) => {
     conn.query (
-        `SELECT * FROM user WHERE userid = "${userData}" `,
+        `SELECT * FROM user WHERE userid = "${user}" `,
         (err, rows) => {
             if(err){
-                console.log(err);
+                throw err;
             }
             cb(rows);
         }
@@ -50,25 +51,25 @@ exports.profile = (user, cb) => {
 
 exports.editProfile = (user, cb) => {
     conn.query (
-        `SELECT * FROM user WHERE userid = "${userData.id}", name = "${userData.name}",pw = "${user.pw}" WHERE userid = "${user.user.id}
+        `SELECT * FROM user WHERE userid = "${user.userid}", name = "${user.name}",pw = "${user.pw}" WHERE userid = "${user.userid}
          `,
         (err, rows) => {
             if(err){
-                console.log(err);
+                throw err;
             }
             cb(rows);
         }
     )
 }
 
-exports.deleteUser = (user, cd) => {
+exports.deleteUser = (user, cb) => {
     conn.query (
         `DELETE FROM user WHERE userid = "${user.userid}" `,
         (err, rows) => {
             if(err){
-                console.log(err);
+                throw err;
             }
-            cd(rows);
+            cb(rows);
         }
     )
 }

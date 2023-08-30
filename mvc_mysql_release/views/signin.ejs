@@ -32,9 +32,9 @@
           id : form.userid.value,
           pw : form.pw.value,
         }
-        if(!id){
+        if(!userData.id){
           alert('아이디를 입력해 주세요!');
-        } else if(!pw){
+        } else if(!userData.pw){
           alert('비밀번호를 입력해 주세요!');
         }else{
           axios({
@@ -53,7 +53,7 @@
             formInfo.submit();
           }
         }).catch((err)=>{
-          throw err;
+          console.log(err);
         })
 
       }

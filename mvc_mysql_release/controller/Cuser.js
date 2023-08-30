@@ -22,7 +22,7 @@ exports.signin = (req,res) => {
 
 exports.postSignin = (req,res) => {
 
-    User.postSignin(req.body, (result)=>{
+    User.signin(req.body, (result)=>{
         res.render(result);
     })
 };
