@@ -26,6 +26,16 @@ INSERT INTO user (userid, name, pw) VALUES ('test', 'test', '1234');
 INSERT INTO user (userid, name, pw) VALUES ('apple', 'apple', '1234');
 INSERT INTO user (userid, name, pw) VALUES ('hello', 'hello', '1234');
 
+
+create user 'user'@'%' identified with mysql_native_password by '1234';
+
+drop user 'user'@'%';
+
+grant all privileges on *.* to 'user'@'%' with grant option;
+
+flush privileges;
+
+show databases;
 -- user 테이블 구조 보기
 DESC user; 
 

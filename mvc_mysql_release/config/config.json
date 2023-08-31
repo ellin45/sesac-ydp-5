@@ -3,8 +3,7 @@
     "username": "user",
     "password": "1234",
     "database": "codingon",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "host": "localhost"
   },
   "test": {},
   "production": {}

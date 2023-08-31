@@ -1,4 +1,4 @@
-// visitor 모델 정의
+// User 모델 정의
 
 const User = (Sequelize, DataTypes) => {
     // Sequelize: models/index.js에서 sequelize
