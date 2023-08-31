@@ -68,20 +68,9 @@ exports.profile = async(req, res) => {
 
 
 exports.editProfile = async(req, res) => {
-  const { id, userid, pw, name } = req.body;
-  const result = await User.update(
-    {
-      userid,
-      pw,
-      name,
-    },
-    {
-      where: {
-        id,
-      },
-    }
-  );
-  res.send(true);
+  User.editProfile(req.body, (result)=> {
+    res.send(result);
+  })
 };
 
 exports.deleteUser = async(req, res) => {

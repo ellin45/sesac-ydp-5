@@ -1,11 +1,12 @@
-'use strict';
-
-// sequelize 모듈 호출
+const path = require('path');
 const Sequelize = require('sequelize');
 
-// config.json 파일을 불러와서 development 환경의 db 설정
-const config = require(__dirname + '/../config/config.json')['development'];
+// 환경 변수 또는 기본값을 사용
+const env = process.env.NODE_ENV || 'development';
 
+// path.join을 사용하여 경로를 안정적으로 합칩니다.
+const config = require(path.join(__dirname, '../config/config.json'))[env];
+ 
 // 빈 db 객체 생성
 const db = {};
 
