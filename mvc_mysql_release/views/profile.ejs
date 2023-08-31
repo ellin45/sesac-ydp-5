@@ -28,14 +28,14 @@
       function profileEdit() {
         const form = document.register['form_profile'];
         const userData = {
-          id : form.userid.value,
-          pw : form.pw.value,
-          name : form.name.value,
+          id : form_profile.userid.value,
+          pw : form_profile.pw.value,
+          name : form_profile.name.value,
         }
 
-        if(!userData.pw){
+        if(!form_profile.pw){
           alert('비밀번호를 입력해주세요!')
-        }else if(!userData.name){
+        }else if(!form_profile.name){
           alert('성함을 입력 해주세요!')
         }else {
           axios({

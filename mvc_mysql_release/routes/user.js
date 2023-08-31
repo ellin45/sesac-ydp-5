@@ -6,8 +6,10 @@ const router = express.Router();
 router.get('/', controller.main);
 router.get('/signup', controller.signup);
 router.post('/signup', controller.postSignup);
+
 router.get('/signin', controller.signin);
 router.post('/signin', controller.postSignin);
+
 router.post('/profile', controller.profile);
 router.post('/profile/edit', controller.editProfile);
 router.post('/profile/delete', controller.deleteUser);

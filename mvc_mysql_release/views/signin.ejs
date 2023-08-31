@@ -35,19 +35,18 @@
       // TODO: [Login] 버튼 클릭시 서버에 로그인 요청하기
       // POST /user/signin
       function login() {
-        const form = document.forms['form_login'];
+        const form_login = document.forms['form_login'];
 
-        if (!form.userid.value) {
-          alert('아이디를 입력헤주세요.');
-        } else if (!form.password.value) {
-          alert('비밀번호를 입력헤주세요.');
-        } else {
+        if (!form_login.checkValidity()) {
+          form_login.reportValidity();
+          return;
+        } 
           axios({
             method: 'POST',
             url: '/user/signin',
             data: {
-              userid: form.userid.value,
-              pw: form.password.value,
+              userid: form_login.userid.value,
+              pw: form_login.password.value,
             },
           })
             .then((result) => {
@@ -58,7 +57,7 @@
                 alert('로그인 되셨습니다.');
 
                 const formInfo = document.forms['form_info'];
-                formInfo.userid.value = form.userid.value;
+                formInfo.userid.value = form_login.userid.value;
                 formInfo.submit();
               }
             })
@@ -66,7 +65,7 @@
               console.log(err);
             });
         }
-      }
+      
     </script>
   </body>
 </html>

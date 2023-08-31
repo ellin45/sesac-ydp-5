@@ -38,4 +38,3 @@ SELECT * FROM user where userid;
 
 
 
-drop visitor table;

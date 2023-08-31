@@ -29,20 +29,20 @@
       function register() {
         const form = document.forms['form_register'];
 
-        if (!form.userid.value) {
+        if (!form_register.userid) {
           alert('아이디를 입력헤주세요.');
-        } else if (!form.password.value) {
+        } else if (!form_register.pw) {
           alert('비밀번호를 입력헤주세요.');
-        } else if (!form.name.value) {
+        } else if (!form_register.name) {
           alert('이름을 입력헤주세요.');
         } else {
           axios({
             method: 'POST',
             url: '/user/signup',
             data: {
-              userid: form.userid.value,
-              name: form.name.value,
-              pw: form.password.value,
+              userid: form_register.userid.value,
+              name: form_register.name.value,
+              pw: form_register.password.value,
             },
           })
             .then((result) => {
