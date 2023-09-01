@@ -27,7 +27,7 @@ app.use('/views', express.static(__dirname + '/views')); // ** for html
 app.get('/', function (req, res) {
   // res.render('index', { data: "Hello" }) // for ejs
   res.sendFile(__dirname + '/views/index.html'); // ** for html 
-});
+});           
 
 
 app.listen(PORT, function () {
