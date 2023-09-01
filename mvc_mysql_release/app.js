@@ -4,7 +4,7 @@ const PORT = 8001;
 const db = require('./models'); // models/index.js에서 export된 객체를 가져옵니다.
 
 app.set('view engine', 'ejs');
-app.use('/views', express.static(__dirname + '/views'));
+app.set('views', './tests');
 app.use('/static', express.static(__dirname + '/static'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

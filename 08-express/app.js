@@ -5,7 +5,7 @@ const PORT = 8080;
 //express 템플릿 엔진 종류 등록
 app.set('view engine', 'ejs');
 //미들웨어
-app.use('/views', express.static(__dirname + '/views'));
+app.use('/views','/views');
 app.use('/public', express.static(__dirname + 'static'));
 const idFromDB = 'banana';
 const pwFromDB = '1234qwer';
