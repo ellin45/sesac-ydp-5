@@ -59,8 +59,11 @@ exports.postRegister = async (req, res) => {
 
 exports.postLogin = async (req, res) => {
   // Step1. 아이디를 찾아서 사용자 존재 유무 체크
+  
   // Step2. 입력된 비밀번호 암호화하여 기존 데이터와 비교
+
   // 2-1. 유저 있음
+
   // 2-1-1. 비밀번호 일치;
   //    userInfo 키 값으로 세션 생성 (userInfo는 name키와 id 키를 갖는 "객체")
   //    응답 데이터: { result: true, data: step1에서 찾은 유저 }
@@ -73,6 +76,7 @@ exports.postLogin = async (req, res) => {
 exports.patchProfile = async (req, res) => {
   // 사용자가 요청한 데이터를 변경
   // 응답 데이터; { result: true }
+  res.render({ result: true })
 };
 
 exports.deleteUser = async (req, res) => {
