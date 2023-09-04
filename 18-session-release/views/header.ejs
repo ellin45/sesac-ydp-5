@@ -22,15 +22,15 @@
           <a class="nav-link active" aria-current="page" href="#">Menu2</a>
         </li>
         <!-- TODO: isLogin 값에 따라 (logout, login) 서로 다른 메뉴 보여주기 -->
-        <% if(isLogin == true) { %>
-          <%  <li class="nav-item">
+        <%if (isLogin == true){%>
+          <li class="nav-item">
+            <a class="nav-link active" href="/logout">Logout</a>
+          </li>
+          <%} else {%>
+          <li class="nav-item">
             <a class="nav-link active" href="/login">Login</a>
-          </li>%>
-          <% } else { %>
-        <li class="nav-item">
-          <a class="nav-link active" href="/logout">Logout</a>
-        </li>
-        <%= }%>
+          </li>
+          <%}%>
       </ul>
       </form>
     </div>

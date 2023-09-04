@@ -25,6 +25,7 @@ const userInfo = { id: 'banana', pw: '1234' };
 const user ='';
 // GET / 요청시; 세션의 user 키 값 확인 (req.session.user)
 app.get('/', (req, res) => {
+  const isLogin = req.session.name ? true : false;
   // user 키 값 있다면; index.ejs 랜더 + isLosgin 을 true 로 user를 user 로 만들어서 전달
   if(userInfo.id){
     const user = req.session.name;

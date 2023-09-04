@@ -1,5 +1,7 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 const PORT = 8000;
 
@@ -7,6 +9,12 @@ app.set("view engine", "ejs");
 app.use("/static", express.static(__dirname + "/static"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.get('/', (req, res)=> {
+  console.log(process.env.NAME);
+  console.log(process.env.NODE);
+  res.send('Hello world!');
+});
 
 // TODO: cookie parser 미들웨어 등록
 app.use(cookieParser());
