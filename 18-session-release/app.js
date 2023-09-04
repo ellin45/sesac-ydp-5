@@ -22,7 +22,7 @@ app.use(session({
 }))
 // 정답 id, pw
 const userInfo = { id: 'banana', pw: '1234' };
-const user ='';
+
 // GET / 요청시; 세션의 user 키 값 확인 (req.session.user)
 app.get('/', (req, res) => {
   const isLogin = req.session.name ? true : false;
