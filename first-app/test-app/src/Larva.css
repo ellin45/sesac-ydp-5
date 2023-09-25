@@ -1,0 +1,69 @@
+div {
+  width: 100px;
+  height: 100px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 100px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.body1{
+  top: 25px;
+  left: 25px;
+  background-color: rgb(238, 13, 13);
+  z-index: 3;
+}
+
+.eye-white {
+  top: 30px;
+  left: 15px;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+}
+
+.eye-black {
+  top: 5px;
+  left: 7.5px; /* Centered the black eye inside the white eye */
+  width: 20px;
+  height: 20px;
+  background-color: black;
+}
+
+.body2 {
+  top: 80px;
+  left: 80px;
+  position: fixed;
+  background-color: rgb(231, 109, 15);
+  z-index: 4;
+}
+
+.body3 {
+  top: 120px;
+  left: 120px;
+  position: fixed;
+  background-color: rgb(229, 243, 105);
+  z-index: 4;
+}
+
+.body4{
+  top: 130px;
+  left: 190px;
+  background-color: rgb(29, 84, 144);
+  z-index: 6;
+}
+
+.body5 {
+  top: 140px;
+  left: 260px;
+  background-color: rgb(16, 16, 116);
+  z-index: 8;
+}
+
+.grass {
+  top: 140px;
+  left: 10px;
+  position: fixed;
+  z-index: 7;
+}
