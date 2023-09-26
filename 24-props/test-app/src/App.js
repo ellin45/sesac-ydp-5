@@ -91,14 +91,42 @@
 //   );
 // }
  	
-import React from 'react';
- 
-const MyComponent = props => {
-    return <div>안녕하세요, 제 이름은 {props.name}입니다.</div>;
-};
- 
-MyComponent.defaultProps = {
-    name: '기본 이름'
-};
- 
-export default MyComponent;
+	
+import React from "react";
+// import MyComponent from "./MyComponent";
+// import Props from "./Food"; 
+// import Props from "./BestSeller";
+	
+import Props from "./TextProps";
+
+// const App = () => {
+//   return ( 
+// //   <MyComponent name="리액트" favoriteNumber={2}>
+// //     리액트
+// //   </MyComponent>
+
+//    <Props 
+//     title="나의 하루는 4시 40분에 시작된다"
+//     author="김유진"
+//     price="13,500원"
+//     type="자기계발서"
+//   /> 
+
+//   );
+// };
+ 	
+const App = () => {
+    const my_func = () => {
+     console.log("콘솔 띄우기 성공!");
+    };
+    
+    return (
+     <div>
+      <Props
+       text="App 컴포넌트에서 넘겨준 text props입니다."
+       valid={ my_func }
+      />
+     </div>
+    );
+   };
+export default App;
