@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+import appleImage from './apple.jpg'; 
+import peachImage from './peach.jpeg';
 
 export default function Select({ setImg, setBackgroundColor, setColor }) {
   return (
@@ -6,13 +8,21 @@ export default function Select({ setImg, setBackgroundColor, setColor }) {
       과일 :
       <select
         onChange={(e) => {
-          setImg(`${e.target.value}.png`);
+          switch(e.target.value) {
+            case 'apple':
+              setImg(appleImage);
+              break;
+            case 'peach':
+              setImg(peachImage);
+              break;
+            default:
+              break;
+          }
         }}
       >
         <option value="apple">사과</option>
-        <option value="banana">바나나</option>
         <option value="peach">복숭아</option>
-        <option value="orange">오렌지</option>
+      
       </select>
       배경색 :
       <select
