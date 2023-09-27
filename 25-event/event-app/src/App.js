@@ -4,7 +4,12 @@ import ClassBind from './ClassBind';
 import SyntheticEvent from './SyntheticEvent'
 import Counter from './Counter';
 import Handler_ex from './ex/Handler_ex';
-
+import State_eventHandling from './State_eventHandling';
+import Disappear from './Disappear';
+import Props_state_event from './Props_state_event';
+import Input from "./Input";
+import Result from "./Result";
+import Select from "./Select";
 function App() {
   return (
     <div className="App">
@@ -15,6 +20,13 @@ function App() {
       <Counter/>
       <br/>
       <Handler_ex/>
+      <br/>
+      <State_eventHandling/>
+      <br/>
+      <Disappear/>
+      <br/>
+      <Props_state_event/>
+
     </div>
   );
 }
