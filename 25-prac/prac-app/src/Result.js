@@ -8,11 +8,11 @@ export default function Result(props) {
           style={{
             padding: '10px',
             marginTop: '10px',
-            backgroundColor: backgroundColor, // Changed from BackGroundColor to backgroundColor
-            color: textColor, // Changed from color to textColor
+            backgroundColor: backgroundColor,
+            color: textColor, 
           }}
         >
-          {text} {/* Changed from Msg to text */}
+          {text} 
         </div>
       </div>
     );
