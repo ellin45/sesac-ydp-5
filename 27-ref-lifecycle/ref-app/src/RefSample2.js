@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
 
 export default function RefSample2() {
-  const id = useRef(7);
+  const id = useRef(99);
   const [number, setNumber] = useState(99);
-  console.log(id);
 
   const plusIdRef = () => {
     id.current += 1;
     console.log(id.current);
   }
   const plusNumState = () => setNumber(number+1);
+  console.log('렌더됨');
 
   return (
     <div>

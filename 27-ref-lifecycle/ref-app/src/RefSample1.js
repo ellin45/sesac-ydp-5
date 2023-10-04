@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 export default function RefSample1() {
-  const inputRef = useRef(100);
+  const inputRef = useRef(7);
 
   const handleFocus = () => {
     console.log(inputRef.current);
