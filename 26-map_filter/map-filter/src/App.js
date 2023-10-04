@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Alphabet from './Alphabet';
+import Alphabet from './alphabet';
 
 function App() {
   return (
