@@ -16,9 +16,9 @@ export default function Select({ setImg, setBackgroundColor, setColor }) {
             setImg(peachImage);
           }
         }}
-        >
-      <option value="apple">사과</option>
-      <option value="peach">복숭아</option>
+      >
+        <option value="apple">사과</option>
+        <option value="peach">복숭아</option>
       </select>
       배경색 :
       <select

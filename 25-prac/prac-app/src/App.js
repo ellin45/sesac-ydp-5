@@ -5,10 +5,11 @@ import Select from "./Select";
 import appleImage from "./apple.jpg";
 import peachImage from "./peach.jpeg";
 
+
 function App() {
   const [textColor, setTextColor] = useState("white");
   const [backgroundColor, setBackgroundColor] = useState("black");
-  const [text, setText] = useState("text");
+  const [text, setText] = useState("글자");
   const [img, setImg] = useState(appleImage);
 
   return (
