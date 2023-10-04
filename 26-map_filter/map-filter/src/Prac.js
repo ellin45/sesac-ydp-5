@@ -10,7 +10,7 @@ export default function Prac() {
   ]);
   const [writer, setWriter] = useState("");
   const [title, setTitle] = useState("");
-
+  
   const addList = () => {
     if (writer.trim().length === 0) {
       writer("");
@@ -34,6 +34,12 @@ export default function Prac() {
       addList();
     }
   };
+
+  const deleteList = (targetIdx) => {
+    const newList = list.filter((_, idx) => idx !== targetIdx);
+    setList(newList);
+  };
+
   return (
     <div>
       <fieldset>
@@ -59,10 +65,41 @@ export default function Prac() {
       <div>
         작성자 :{" "}
         <button type="radio">
-          <select>작성자</select>
+          <select>
+            <option defaultChecked>작성자</option>
+            {list.map((value) => {
+              <option key={value.writer}>{value.writer}</option>;
+            })}
+          </select>
         </button>
         <input type="text" placeholder="검색어"></input>
-        <button>검색</button>
+        <button onClick={addList}>검색</button>
+      </div>
+      <div>
+        <table border="1" cellSpacing="0" cellPadding="15">
+          <thead>
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성자</th>
+            </tr>
+          </thead>
+          <tbody>
+            {list.map((value, idx) => (
+              <tr>
+                <td key={idx} onDoubleClick={() => deleteList(idx)}>
+                  {idx + 1}
+                </td>
+                <td key={value.title} onDoubleClick={() => deleteList(idx)}>
+                  {value.title}
+                </td>
+                <td key={value.writer} onDoubleClick={() => deleteList(idx)}>
+                  {value.writer}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
