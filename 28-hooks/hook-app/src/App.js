@@ -7,6 +7,7 @@ import useToggle from "./components/hooks/useToggle";
 import Faq from "./components/Faq";
 import Todo from "./components/Todo";
 import LoginEx from "./components/LoginEx";
+import Box from "./components/hooks/useIntersectionObserver"
 
 function App() {
   useTitle("React Hooks 연습중입니다");
@@ -42,9 +43,20 @@ function App() {
       <br />
       <br />
       <br />
-      
+      <LongSection />
+      <Box />
+      <LongSection />
+      <Box />
+      <LongSection />
     </div>
   );
+}
+function LongSection() {
+  const items = [];
+  for (let i = 0; i < 50; i++) {
+    items.push(<li key={i}>Item #{i} (keep scrolling)</li>);
+  }
+  return <ul>{items}</ul>
 }
 
 export default App;
