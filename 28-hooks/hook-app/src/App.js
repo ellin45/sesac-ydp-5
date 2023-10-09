@@ -5,7 +5,7 @@ import UseReducer from "./components/UseReducer";
 import useTitle from "./components/hooks/useTitle";
 import useToggle from "./components/hooks/useToggle";
 import Faq from "./components/Faq";
-
+import Todo from "./components/Todo";
 function App() {
   useTitle("React Hooks 연습중입니다");
   useToggle("hello");
@@ -21,6 +21,8 @@ function App() {
       <UseReducer />
       <hr />
       <Faq />
+      <hr />
+      <Todo />
     </div>
   );
 }
