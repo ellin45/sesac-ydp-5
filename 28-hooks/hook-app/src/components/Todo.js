@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 
 export default function Todo() {
   const [todo, setTodo] = useState("");
-  const [list, setList] = useState("");
+  const [list, setList] = useState([]);
   const listRef = useRef(null);
 
   const addHandler = () => {

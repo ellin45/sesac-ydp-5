@@ -6,6 +6,8 @@ import useTitle from "./components/hooks/useTitle";
 import useToggle from "./components/hooks/useToggle";
 import Faq from "./components/Faq";
 import Todo from "./components/Todo";
+import LoginEx from "./components/LoginEx";
+
 function App() {
   useTitle("React Hooks 연습중입니다");
   useToggle("hello");
@@ -22,7 +24,25 @@ function App() {
       <hr />
       <Faq />
       <hr />
+      <br />
+      <br />
+      <br />
       <Todo />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <hr />
+      <br />
+      <br />
+      <br />
+      <LoginEx id="ellin" pw="1234" />
+      <br />
+      <br />
+      <br />
+      <br />
+      
     </div>
   );
 }
