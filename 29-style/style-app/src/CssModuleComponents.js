@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './styles/cssModule.module.css';
+import styles from './styles/CssModule.module.css';
 
-export default function cssModuleComponents() {
+export default function CssModuleComponents() {
   console.log(styles);
   return (
     <div className={styles.container}>
