@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import ParcSass from './styles/PracSass.scss'
+import './styles/PracSass.scss'
 import img from './styles/img/grass.png';
 export default function PracSass() {
   return (
