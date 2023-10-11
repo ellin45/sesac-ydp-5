@@ -1,0 +1,41 @@
+@import './_PracCircle-variable';
+@import './_PracCircle-util';
+
+
+  .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  
+  &.circle1 {
+    @include move(1s); // 1s는 애니메이션 지속 시간입니다
+
+    background-color: $color-first;
+  }
+  &.circle2 {
+    @include move(1s); // 1s는 애니메이션 지속 시간입니다.
+    background-color: $color-second;
+  }
+  &.circle3 {
+    @include move(1s); // 1s는 애니메이션 지속 시간입니다.
+    background-color: $color-third;
+  }
+
+  }
+
+@keyframes rotateClockwise {
+  to {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes rotateClockwise1 {
+  to {
+    transform: rotate(20deg);
+  }
+}
+@keyframes rotateClockwise2 {
+  to {
+    transform: rotate(20deg);
+  }
+}

@@ -5,17 +5,15 @@ div {
     text-align: center;
     line-height: 100px;
     border-radius: 50%;
-
     position: absolute;
 }
-
 /* z-index : 겹치는 요소에 대한 순서를 결정
     -숫자값: 양수, 0, 음수
     -숫자값이 클수록 더 위에 쌓임(가장 앞에 놓인다)
 */
 .body1{
-    top: 80px;
-    left: 400px;
+    top: 25px;
+    left: 25px;
     background-color: rgb(238, 13, 13);
     z-index: 3;
     border-radius: 50%;
@@ -27,14 +25,12 @@ div {
     height: 35px;
     background-color: white;
 }
-
 .eye-black {
     top: 5px;
     left: 0;
     width: 20px;
     height: 20px;
     background-color: black;
-
 }
 .body2 {
     top: 80px;
@@ -44,18 +40,14 @@ div {
     z-index: 4;
     border-radius: 50%;
 }
-
 .body3 {
-    top: 80px;
-    left: 25px;
+    top: 120px;
+    left: 120px;
     position: fixed;
     border-radius: 50%;
     z-index: 4;
     background-color: rgb(229, 243, 105);
 }
-
-
-
 .body4{
     top: 130px;
     left: 190px;
@@ -63,7 +55,6 @@ div {
     background-color: rgb(29, 84, 144);
     z-index: 6;
 }
-
 .body5 {
     top: 140px;
     left: 260px;
@@ -76,5 +67,4 @@ div {
     left:10px;
     position:fixed;
     z-index: 7;
-
 }
