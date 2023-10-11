@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import PostListItem from './PostListItem';
+import React, {useEffect, useState} from 'react'
+import PostListItem from './PostListItem'
 import './styles/PostListItem.scss';
+
 export default function PostList() {
   
   const [fakePosts, setFakePosts] = useState([]);
@@ -66,11 +67,13 @@ export default function PostList() {
   return (
     <>
     <div>
-      <div className='header'>PostList</div>
-    </div >
+    <div className='header'>Post List</div>
+  </div >
+    <div >
     {fakePosts.length === 0 ? '...loading' : fakePosts.map((post) => {
             return <PostListItem post = {post}/>;
           })}
+          </div>
           </>
   );
 }

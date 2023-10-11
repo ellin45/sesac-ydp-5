@@ -1,0 +1,39 @@
+$first-color: gray;
+$second-color: black;
+$third-color: rgb(188, 158, 217);
+$fourth-color: white;
+$title-color: rgb(217, 202, 227);
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 20px ;
+  padding: 120px;
+  background-color: $third-color;
+  color: $fourth-color;
+  font-size: 100px;
+  box-shadow: 3px 4px 5px $first-color;
+  border-radius: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $title-color;
+  border-radius: 20px;
+  margin: 130px 245px 45px 245px;
+  padding: 35px;
+  box-shadow: 3px 4px 5px $first-color;
+  font-size: 42px;
+  .postIdTitle {
+    padding: 10px;
+  }
+  .id {
+    color: $third-color;
+  }
+  .title {
+    color: $first-color;
+  }
+}

@@ -3,7 +3,7 @@
 // import StyledComponent from './StyledComponent';
 // import PracSass from './PracSass';
 import PracCircle from './PracCircle';
-
+import PostList from './PostList';
 function App() {
   return (
     <div className="App">
@@ -14,6 +14,30 @@ function App() {
       <br/> */}
       <h2>원 애니메이션</h2>
       <PracCircle/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <PostList/>
       {/* <h1>React Styling</h1>
       <h2>Css module</h2>
       <CssModuleComponents />
