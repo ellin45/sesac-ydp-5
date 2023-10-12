@@ -3,7 +3,7 @@ import PostListItem from './PostListItem'
 import './styles/PostListItem.scss';
 
 export default function PostList() {
-  
+
   const [fakePosts, setFakePosts] = useState([]);
   useEffect(()=>{
     setTimeout(()=>{
@@ -63,7 +63,6 @@ export default function PostList() {
     },2000);
     },[])
 
-
   return (
     <>
     <div>
@@ -77,3 +76,4 @@ export default function PostList() {
           </>
   );
 }
+

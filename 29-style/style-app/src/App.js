@@ -2,8 +2,9 @@
 // import SassComponent from './SassComponent';
 // import StyledComponent from './StyledComponent';
 // import PracSass from './PracSass';
-import PracCircle from './PracCircle';
-import PostList from './PostList';
+// import PracCircle from './PracCircle';
+// import PostList from './PostList';
+import Grid from './Grid';
 function App() {
   return (
     <div className="App">
@@ -12,8 +13,9 @@ function App() {
       <br/>
       <br/>
       <br/> */}
-      <h2>원 애니메이션</h2>
-      <PracCircle/>
+      {/* <h2>원 애니메이션</h2> */}
+      {/* <PracCircle/> */}
+      {/* <br/>
       <br/>
       <br/>
       <br/>
@@ -36,8 +38,8 @@ function App() {
       <br/>
       <br/>
       <br/>
-      <br/>
-      <PostList/>
+      <PostList/> */}
+      <Grid/>
       {/* <h1>React Styling</h1>
       <h2>Css module</h2>
       <CssModuleComponents />
