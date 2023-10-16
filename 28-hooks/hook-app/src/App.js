@@ -8,7 +8,8 @@ import Faq from "./components/Faq";
 import Todo from "./components/Todo";
 import LoginEx from "./components/LoginEx";
 import Box from "./components/hooks/useIntersectionObserver"
-
+import Form from "./components/react-hook-form/Form"
+import Form_prac from "./components/react-hook-form/Form_prac";
 function App() {
   useTitle("React Hooks 연습중입니다");
   useToggle("hello");
@@ -43,11 +44,13 @@ function App() {
       <br />
       <br />
       <br />
-      <LongSection />
+      {/* <LongSection />
       <Box />
       <LongSection />
       <Box />
-      <LongSection />
+      <LongSection /> */}
+      <Form/>
+      <Form_prac/>
     </div>
   );
 }
