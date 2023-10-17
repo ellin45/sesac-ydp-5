@@ -9,7 +9,7 @@ export default function MainPage() {
     <div className={['Main', searchParams.get('mode')].join('')}>
     <h1>MainPage</h1>
     <button onClick={()=> {
-      setSearchParams({node:'Dark'});
+      setSearchParams({mode:'Dark'});
     }}>
       Dark Mode
     </button>

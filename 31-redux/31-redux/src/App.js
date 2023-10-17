@@ -5,7 +5,7 @@ function App() {
 
   const [number, setNumber] = useState(100);
   const plus = () => setNumber(number + 1);
-  const minus = () =>setNumber(number - 1);
+  const minus = () => setNumber(number - 1);
 
   return (
     <div className="App">
@@ -17,7 +17,7 @@ function App() {
 const Box1 = ({number, plus, minus}) => {
   return(
     <div className='Box'>
-      <h2>Box1: {number}</h2>
+    <h2>Box1: {number}</h2>
       <Box2 number={number} plus={plus} minus={minus}/>
     </div>
   )
