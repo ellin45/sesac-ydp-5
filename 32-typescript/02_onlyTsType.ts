@@ -49,5 +49,6 @@ let val2;
 val2 = false;
 val2 = '바이';
 
-type 
+type olympic = readonly [object, boolean];
+let game: olympic = [{name: "쇼트트랙", type: "혼성 계주"}, true];
 
