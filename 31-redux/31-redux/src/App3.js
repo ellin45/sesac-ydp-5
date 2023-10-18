@@ -2,7 +2,7 @@ import '../src/styles/Box.css';
 import { useSelector, useDispatch } from 'react-redux';
 
 function App() {
-  const number = useSelector((state) => state.number);
+  const number = useSelector((state) => state.counter.number);
   return (
     <div className="App">
       <h1>React Redux Ex</h1>
@@ -36,13 +36,19 @@ const Box3 = () => {
   );
 };
 const Box4 = () => {
-  const number = useSelector((state) => state.number);
+  const number = useSelector((state) => state.counter.number);
+  const isVisible = useSelector((state) => state.isVisible);
   const dispatch = useDispatch();
+
   return (
     <div className="Box">
       <h2>Box4: {number}</h2>
+
+      <h2>isVisible 값은 {isVisible ? '참' : '거짓'}이다.</h2>
       <button onClick={() => dispatch({ type: 'PLUS' })}>PLUS</button>
       <button onClick={() => dispatch({ type: 'MINUS' })}>MINUS</button>
+
+      <button onClick={()=> dispatch({type: 'CHANGE'})}>CHANGE</button>
     </div>
   );
 };
