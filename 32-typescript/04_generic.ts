@@ -76,7 +76,27 @@ const galaxy123: Phone<galaxyOption> = {
 }
 console.log(galaxy123);
 
+function sum(a:number,b:number){
+  return a+b
+}
 
+console.log(sum(5,5)) //10
 
+function sum2(...sum2:number[]):number{
+  let sum=0;
+  for(let i=0; i<sum2.length; i++){
+    sum += sum2[i]
+  }
+  return sum;
+}
 
+console.log(sum2(1,2,3,4,10))//20
 
+function arrElement<T>(arr: T[],idx:number):T | false{
+  if( arr.length > idx){
+    return false;
+  }else{
+    return arr[idx];
+  }
+}
+console.log(arrElement<string>(["a"],0)) //false
