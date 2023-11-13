@@ -35,18 +35,18 @@
 
       socket.addEventListener('message', (event) => {
         const data = JSON.parse(event.data);
-
         console.log(data);
         const { msg, name } = data;
 
         const li = document.createElement('li');
         li.textContent = `${name}님 - ${msg}`;
-        li.appendChild(li);
+        ul.appendChild(li);
       });
 
       socket.addEventListener('error', (event) => {
-        console.log('오류 발생 ::', event.console.error);
+        console.log('오류 발생 :: ', event.console.error);
       });
+
       chatForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -56,6 +56,10 @@
         const data = { msg: msg.value, name: name.value };
         console.log('보내려는 메세지 데이터 ::', data);
 
+        // 메세지 데이터를 웹 소켓 서버로 전송
+        // 웹 소켓 서버가 데이터를 쉽게 처리할 수 있도록
+        // (= 웹 소켓 서버가 js 언어를 쓰지 않을 수도 있으니)
+        // JSON 형식의 텍스트 데이터로 변환(직렬화, serialize)해서 웹 서버로 전송
         socket.send(JSON.stringify(data));
 
         // input 초기화
