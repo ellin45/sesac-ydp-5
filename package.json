@@ -19,6 +19,7 @@
     "sequelize": "^6.32.1",
     "sequelize-cli": "^6.6.1",
     "socket-io": "^1.0.0",
+    "socket.io": "^4.7.2",
     "thunder-client": "^0.4.2",
     "typescript": "^5.2.2",
     "ws": "^8.14.2"
