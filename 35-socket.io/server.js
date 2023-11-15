@@ -41,6 +41,7 @@ io.on('connection', (socket) => {
   // emit() from server
   // - socket.emit(event_name, data): 해당 클라이언트에게만 이벤트, 데이터를 전송
   // - io.emit(event_name, data): 서버에 접속된 모든 클라이언트 전송
+  // - io.to(소켓 아이디).emit(event_name, dat): 소켓 아이디에 해당하는 사용자에게 전송
   socket.on('setNick', (nick) => {
     console.log(`닉네임 설정 완료 :: ${nick} 님 입장`);
 
@@ -63,18 +64,17 @@ io.on('connection', (socket) => {
   // [실습3-3] 클라이언트 퇴장시
   // "notice" 이벤트로 퇴장 공지
   socket.on('disconnect', () => {
-    console.log(
-      '접속 끊김 :: ',
-      `${nickObjs[socket.id]} 님 퇴장 :: `,
-      socket.id
-    );
+    console.log('접속 끊김 :: ', `${nickObjs[socket.id]} 님 퇴장 :: `, socket.id);
 
     io.emit('notice', `${nickObjs[socket.id]} 님이 퇴장하셨습니다.`);
     delete nickObjs[socket.id];
     updateList();
   });
+  
+  //[실습4] 채팅창 메세지 전송 step1
+  // "send "  이벤트를 받아서
+  // 모두에게 newMessage 이벤트로 {닉네임, 입력창 내용} 데이터를 전송
 });
-
 server.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
