@@ -20,8 +20,13 @@ console.log(Object.values(nickObjs2).indexOf(nick1)); // 0
 console.log(Object.values(nickObjs2).indexOf(nick2)); // 1
 console.log(Object.values(nickObjs2).indexOf(nick3)); // -1 : nick3는 nickObjs2에 존재하지 않는 value
 
-
+console.log('-------------------');
 // for in 반복문
-for(let key in nickObjs2){
-  console.log(key, nickObjs2[key]);
+for (let key in nickObjs2) {
+  console.log(key, nickObjs2[key]); // key, value
 }
+
+// object 요소 삭제
+console.log('삭제 전 > ', nickObjs2);
+delete nickObjs2['hello'];
+console.log('삭제 후 > ', nickObjs2);

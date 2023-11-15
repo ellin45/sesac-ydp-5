@@ -59,12 +59,17 @@ io.on('connection', (socket) => {
       updateList();
     }
   });
+
   // [실습3-3] 클라이언트 퇴장시
   // "notice" 이벤트로 퇴장 공지
   socket.on('disconnect', () => {
-    console.log('접속 끊김::', socket.id);
+    console.log(
+      '접속 끊김 :: ',
+      `${nickObjs[socket.id]} 님 퇴장 :: `,
+      socket.id
+    );
 
-    io.emit('notice', `${nickObjs[socket.id]}님이 퇴장하셨습니다.`);
+    io.emit('notice', `${nickObjs[socket.id]} 님이 퇴장하셨습니다.`);
     delete nickObjs[socket.id];
     updateList();
   });
